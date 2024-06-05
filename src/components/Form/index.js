@@ -12,14 +12,19 @@ export default function Form() {
     'Inteligência Artificial',
   ]
 
+  function handleFormSubmit(e) {
+    e.preventDefault()
+    console.log('Form submitted')
+  } 
+
   return (
     <section className="form-container">
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <h2>Preencha os dados para criar o card:</h2>
-        <TextInput label="Nome" placeholder="Digite o seu nome" />
-        <TextInput label="Cargo" placeholder="Digite o seu cargo" />
+        <TextInput required={true} label="Nome" placeholder="Digite o seu nome" />
+        <TextInput required={true} label="Cargo" placeholder="Digite o seu cargo" />
         <TextInput label="Imagem" placeholder="Informe o endereço da imagem" />
-        <Dropdown label="Times" itens={times} />
+        <Dropdown required={true} label="Times" itens={times} />
         <Button textContent='Criar Card'>
           Criar Card
         </Button>
