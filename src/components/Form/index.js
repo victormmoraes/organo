@@ -1,3 +1,4 @@
+import Button from "../Button";
 import Dropdown from "../Dropdown";
 import TextInput from "../TextInput";
 import './Form.css'
@@ -19,6 +20,9 @@ export default function Form() {
         <TextInput label="Cargo" placeholder="Digite o seu cargo" />
         <TextInput label="Imagem" placeholder="Informe o endereço da imagem" />
         <Dropdown label="Times" itens={times} />
+        <Button textContent='Criar Card'>
+          Criar Card
+        </Button>
       </form>
     </section>
   )
