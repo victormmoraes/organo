@@ -1,10 +1,16 @@
 import './TextInput.css'
 
-export default function TextInput({label, placeholder, required}) {
+export default function TextInput({label, placeholder, required, iptValue, onChange}) {
+
+  function handleInputChange(e) {
+    onChange(e.target.value)
+    console.log(iptValue)
+  }
+
   return (
     <div className="text-input">
       <label>{label}</label>
-      <input placeholder={placeholder} required={required}/>
+      <input onChange={handleInputChange} placeholder={placeholder} required={required} value={iptValue}/>
     </div>
   )
 }
