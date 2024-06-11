@@ -4,7 +4,7 @@ import Dropdown from "../Dropdown";
 import TextInput from "../TextInput";
 import "./Form.css";
 
-export default function Form() {
+export default function Form({ onRegisterCollaborator }) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [avatar, setAvatar] = useState("");
@@ -20,13 +20,19 @@ export default function Form() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    console.log("Form submitted =>", name, role, avatar, team);
+    onRegisterCollaborator({
+      name,
+      role,
+      avatar,
+      team,
+    });
   }
 
   return (
     <section className="form-container">
       <form onSubmit={handleFormSubmit}>
         <h2>Preencha os dados para criar o card:</h2>
+
         <TextInput
           required={true}
           label="Nome"

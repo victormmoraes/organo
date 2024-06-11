@@ -4,7 +4,6 @@ export default function Dropdown({ label, itens, required, selectValue, onChange
 
   function handleSelectedItem(e) {
     onChange(e.target.value);
-    console.log(selectValue);
   }
 
   return (

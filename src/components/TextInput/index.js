@@ -4,7 +4,6 @@ export default function TextInput({label, placeholder, required, iptValue, onCha
 
   function handleInputChange(e) {
     onChange(e.target.value)
-    console.log(iptValue)
   }
 
   return (
