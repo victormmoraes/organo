@@ -4,19 +4,11 @@ import Dropdown from "../Dropdown";
 import TextInput from "../TextInput";
 import "./Form.css";
 
-export default function Form({ onRegisterCollaborator }) {
+export default function Form({ onRegisterCollaborator, teams }) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [avatar, setAvatar] = useState("");
   const [team, setTeam] = useState("");
-
-  const times = [
-    "Programação",
-    "Front-end",
-    "Data-Science",
-    "Back-end",
-    "Inteligência Artificial",
-  ];
 
   function handleFormSubmit(e) {
     e.preventDefault();
@@ -59,7 +51,7 @@ export default function Form({ onRegisterCollaborator }) {
         <Dropdown
           required={true}
           label="Times"
-          itens={times}
+          itens={teams}
           onChange={(value) => setTeam(value)}
           selectValue={team}
         />

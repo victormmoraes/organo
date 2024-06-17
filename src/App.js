@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Banner from "./components/Banner";
 import Form from "./components/Form";
+import Team from "./components/Team";
 
 export default function App() {
   const [collaborators, setCollaborators] = useState([{}]);
@@ -10,11 +11,57 @@ export default function App() {
     console.log(collaborators);
   }
 
+  const teams = [
+    {
+      name: "Programação",
+      primary_color: "#57c278",
+      secondary_color: "#d9f7e9",
+    },
+    {
+      name: "Front-end",
+      primary_color: "#82cffa",
+      secondary_color: "#e8f8ff",
+    },
+    {
+      name: "Data-Science",
+      primary_color: "#a6d157",
+      secondary_color: "#f0f8e2",
+    },
+    {
+      name: "Back-end",
+      primary_color: "#e06b69",
+      secondary_color: "#fde7e8",
+    },
+    {
+      name: "Inteligência Artificial",
+      primary_color: "#db6ebf",
+      secondary_color: "#fae9f5",
+    },
+    {
+      name: "Mobile",
+      primary_color: "#ffba05",
+      secondary_color: "#fff5d9",
+    },
+  ];
+
+  const teamsName = teams.map(team => (
+    team.name
+  ))
+
   return (
     <div className="App">
       <Banner />
 
-      <Form onRegisterCollaborator={handleRegisterNewCollaborator} />
+      <Form onRegisterCollaborator={handleRegisterNewCollaborator} teams={teamsName}/>
+
+      {teams.map((team) => (
+        <Team
+          teamName={team.name}
+          key={team.teamName}
+          primaryColor={team.primary_color}
+          secondaryColor={team.secondary_color}
+        />
+      ))}
     </div>
   );
 }
