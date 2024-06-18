@@ -1,9 +1,9 @@
 import "./Card.css";
 
-const Card = ({ name, role, avatar }) => {
+const Card = ({ name, role, avatar, background }) => {
   return (
     <div className="card-container">
-      <div className="card-header">
+      <div className="card-header" style={{backgroundColor: background}}>
         <img src={avatar} alt={name} />
       </div>
 

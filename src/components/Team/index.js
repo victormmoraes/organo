@@ -17,6 +17,7 @@ const Team = ({ teamName, primaryColor, secondaryColor, collaborators }) => {
               name={collaborator.name}
               role={collaborator.role}
               avatar={collaborator.avatar}
+              background={primaryColor}
             />
           );
         })}

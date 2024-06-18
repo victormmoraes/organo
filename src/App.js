@@ -8,7 +8,6 @@ export default function App() {
 
   function handleRegisterNewCollaborator(data) {
     setCollaborators([...collaborators, data]);
-    console.log(collaborators);
   }
 
   const teams = [
