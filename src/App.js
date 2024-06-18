@@ -4,7 +4,7 @@ import Form from "./components/Form";
 import Team from "./components/Team";
 
 export default function App() {
-  const [collaborators, setCollaborators] = useState([{}]);
+  const [collaborators, setCollaborators] = useState([]);
 
   function handleRegisterNewCollaborator(data) {
     setCollaborators([...collaborators, data]);
@@ -44,22 +44,27 @@ export default function App() {
     },
   ];
 
-  const teamsName = teams.map(team => (
-    team.name
-  ))
+
+  const teamsName = teams.map((team) => team.name);
 
   return (
     <div className="App">
       <Banner />
 
-      <Form onRegisterCollaborator={handleRegisterNewCollaborator} teams={teamsName}/>
+      <Form
+        onRegisterCollaborator={handleRegisterNewCollaborator}
+        teams={teamsName}
+      />
 
       {teams.map((team) => (
         <Team
+          key={team.name}
           teamName={team.name}
-          key={team.teamName}
           primaryColor={team.primary_color}
           secondaryColor={team.secondary_color}
+          collaborators={collaborators.filter(
+            (collab) => collab.team === team.name
+          )}
         />
       ))}
     </div>

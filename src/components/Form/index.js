@@ -10,14 +10,23 @@ export default function Form({ onRegisterCollaborator, teams }) {
   const [avatar, setAvatar] = useState("");
   const [team, setTeam] = useState("");
 
-  function handleFormSubmit(e) {
+  function clearFormValues() {
+    setName('')
+    setRole('')
+    setAvatar('')
+    setTeam('')
+  }
+
+  async function  handleFormSubmit(e) {
     e.preventDefault();
-    onRegisterCollaborator({
+    await onRegisterCollaborator({
       name,
       role,
       avatar,
       team,
     });
+
+    clearFormValues()
   }
 
   return (
