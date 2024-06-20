@@ -43,8 +43,11 @@ export default function App() {
     },
   ];
 
-
   const teamsName = teams.map((team) => team.name);
+
+  function handleDeleteCollaborator() {
+    console.log('Deletando colaborador')
+  }
 
   return (
     <div className="App">
@@ -64,6 +67,7 @@ export default function App() {
           collaborators={collaborators.filter(
             (collab) => collab.team === team.name
           )}
+          onDelete={handleDeleteCollaborator}
         />
       ))}
     </div>

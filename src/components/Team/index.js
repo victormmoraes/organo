@@ -1,7 +1,7 @@
 import Card from "../Card";
 import "./Team.css";
 
-const Team = ({ teamName, primaryColor, secondaryColor, collaborators }) => {
+const Team = ({ teamName, primaryColor, secondaryColor, collaborators, onDelete }) => {
   return collaborators.length > 0 ? (
     <section
       className="team-container"
@@ -18,6 +18,7 @@ const Team = ({ teamName, primaryColor, secondaryColor, collaborators }) => {
               role={collaborator.role}
               avatar={collaborator.avatar}
               background={primaryColor}
+              onDelete={onDelete}
             />
           );
         })}

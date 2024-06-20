@@ -1,5 +1,21 @@
 .card-container {
   width: 280px;
+  position: relative;
+}
+
+.delete-button {
+  all: unset;
+
+  position: absolute;
+  right: 10px;
+  top: 10px;
+
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.delete-button:hover {
+  transform: scale(1.2)
 }
 
 .card-container .card-header {
