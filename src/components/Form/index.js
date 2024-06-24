@@ -3,6 +3,8 @@ import Button from "../Button";
 import Dropdown from "../Dropdown";
 import TextInput from "../TextInput";
 import "./Form.css";
+import { v4 as uuid4 } from "uuid";
+
 
 export default function Form({ onRegisterCollaborator, teams }) {
   const [name, setName] = useState("");
@@ -20,6 +22,7 @@ export default function Form({ onRegisterCollaborator, teams }) {
   async function  handleFormSubmit(e) {
     e.preventDefault();
     await onRegisterCollaborator({
+      id: uuid4(),
       name,
       role,
       avatar,
