@@ -5,12 +5,7 @@ import Team from "./components/Team";
 
 export default function App() {
   const [collaborators, setCollaborators] = useState([]);
-
-  function handleRegisterNewCollaborator(data) {
-    setCollaborators([...collaborators, data]);
-  }
-
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       name: "Programação",
       primary_color: "#57c278",
@@ -41,12 +36,28 @@ export default function App() {
       primary_color: "#ffba05",
       secondary_color: "#fff5d9",
     },
-  ];
+  ]);
+
+  function handleRegisterNewCollaborator(data) {
+    setCollaborators([...collaborators, data]);
+  }
+
+  function handleChangeTeamBackgroundColor(color, teamName) {
+    setTeams(
+      teams.map((team) => {
+        if (team.name === teamName) {
+          console.log(teamName)
+          team.primary_color = color;
+        }
+        return team;
+      })
+    );
+  }
 
   const teamsName = teams.map((team) => team.name);
 
   function handleDeleteCollaborator() {
-    console.log('Deletando colaborador')
+    console.log("Deletando colaborador");
   }
 
   return (
@@ -67,6 +78,7 @@ export default function App() {
           collaborators={collaborators.filter(
             (collab) => collab.team === team.name
           )}
+          onColorChange={handleChangeTeamBackgroundColor}
           onDelete={handleDeleteCollaborator}
         />
       ))}

@@ -2,6 +2,7 @@
   text-align: center;
   padding: 32px;
   background-color: #d9f7e9;
+  position: relative;
 }
 
 .team-container h3 {
@@ -13,6 +14,12 @@
 
 .team-container .team-wrapper {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+}
+
+.input-color {
+  position: absolute;
+  top: 20px;
+  right: 50px;
 }
