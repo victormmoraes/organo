@@ -8,33 +8,27 @@ export default function App() {
   const [teams, setTeams] = useState([
     {
       name: "Programação",
-      primary_color: "#57c278",
-      secondary_color: "#d9f7e9",
+      color: "#57c278",
     },
     {
       name: "Front-end",
-      primary_color: "#82cffa",
-      secondary_color: "#e8f8ff",
+      color: "#82cffa",
     },
     {
       name: "Data-Science",
-      primary_color: "#a6d157",
-      secondary_color: "#f0f8e2",
+      color: "#a6d157",
     },
     {
       name: "Back-end",
-      primary_color: "#e06b69",
-      secondary_color: "#fde7e8",
+      color: "#e06b69",
     },
     {
       name: "Inteligência Artificial",
-      primary_color: "#db6ebf",
-      secondary_color: "#fae9f5",
+      color: "#db6ebf",
     },
     {
       name: "Mobile",
-      primary_color: "#ffba05",
-      secondary_color: "#fff5d9",
+      color: "#ffba05",
     },
   ]);
 
@@ -46,8 +40,8 @@ export default function App() {
     setTeams(
       teams.map((team) => {
         if (team.name === teamName) {
-          console.log(teamName)
-          team.primary_color = color;
+          console.log(teamName);
+          team.color = color;
         }
         return team;
       })
@@ -73,8 +67,7 @@ export default function App() {
         <Team
           key={team.name}
           teamName={team.name}
-          primaryColor={team.primary_color}
-          secondaryColor={team.secondary_color}
+          color={team.color}
           collaborators={collaborators.filter(
             (collab) => collab.team === team.name
           )}
