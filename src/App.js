@@ -54,10 +54,14 @@ export default function App() {
     );
   }
 
+  function handleCreateNewTeam(newTeam) {
+    setTeams([...teams, { ...newTeam, id: uuid4() }]);
+  }
+
   const teamsName = teams.map((team) => team.name);
 
   function handleDeleteCollaborator(id) {
-    setCollaborators(collaborators.filter(c => c.id !== id))
+    setCollaborators(collaborators.filter((c) => c.id !== id));
   }
 
   return (
@@ -67,6 +71,7 @@ export default function App() {
       <Form
         onRegisterCollaborator={handleRegisterNewCollaborator}
         teams={teamsName}
+        onCreateNewTeam={handleCreateNewTeam}
       />
 
       {teams.map((team) => (

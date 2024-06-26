@@ -5,21 +5,26 @@ import TextInput from "../TextInput";
 import "./Form.css";
 import { v4 as uuid4 } from "uuid";
 
-
-export default function Form({ onRegisterCollaborator, teams }) {
+export default function Form({
+  onRegisterCollaborator,
+  teams,
+  onCreateNewTeam,
+}) {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [avatar, setAvatar] = useState("");
   const [team, setTeam] = useState("");
+  const [teamName, setTeamName] = useState("");
+  const [teamColor, setTeamColor] = useState("");
 
   function clearFormValues() {
-    setName('')
-    setRole('')
-    setAvatar('')
-    setTeam('')
+    setName("");
+    setRole("");
+    setAvatar("");
+    setTeam("");
   }
 
-  async function  handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
     await onRegisterCollaborator({
       id: uuid4(),
@@ -29,7 +34,7 @@ export default function Form({ onRegisterCollaborator, teams }) {
       team,
     });
 
-    clearFormValues()
+    clearFormValues();
   }
 
   return (
@@ -68,6 +73,32 @@ export default function Form({ onRegisterCollaborator, teams }) {
           selectValue={team}
         />
         <Button textContent="Criar Card">Criar Card</Button>
+      </form>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onCreateNewTeam({ name: teamName, color: teamColor });
+        }}
+      >
+        <h2>Crie um novo time:</h2>
+
+        <TextInput
+          required
+          label="Nome"
+          placeholder="Digite o nome do time"
+          iptValue={teamName}
+          onChange={(value) => setTeamName(value)}
+        />
+
+        <TextInput
+          required
+          label="Cor"
+          placeholder="Digite a cor do time"
+          iptValue={teamColor}
+          onChange={(value) => setTeamColor(value)}
+        />
+        <Button textContent="Criar Time">Criar Novo time</Button>
       </form>
     </section>
   );
