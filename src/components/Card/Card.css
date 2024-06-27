@@ -52,3 +52,8 @@
   color: #212121;
   padding: 0 16px;
 }
+
+.card-container .card-content .favorite {
+  margin-top: 20px;
+  cursor: pointer;
+}

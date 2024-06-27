@@ -28,6 +28,7 @@ export default function Form({
     e.preventDefault();
     await onRegisterCollaborator({
       id: uuid4(),
+      favorite: false,
       name,
       role,
       avatar,

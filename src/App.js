@@ -58,6 +58,16 @@ export default function App() {
     setTeams([...teams, { ...newTeam, id: uuid4() }]);
   }
 
+  function handleFavoriteCollaborator(id) {
+    setCollaborators(
+      collaborators.map((collaborator) => {
+        if (collaborator.id === id)
+          collaborator.favorite = !collaborator.favorite;
+        return collaborator;
+      })
+    );
+  }
+
   const teamsName = teams.map((team) => team.name);
 
   function handleDeleteCollaborator(id) {
@@ -83,6 +93,7 @@ export default function App() {
           )}
           onColorChange={handleChangeTeamBackgroundColor}
           onDelete={handleDeleteCollaborator}
+          onFavorite={handleFavoriteCollaborator}
         />
       ))}
     </div>
