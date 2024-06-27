@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../Button";
 import Dropdown from "../Dropdown";
-import TextInput from "../TextInput";
+import Input from "../Input";
 import "./Form.css";
 import { v4 as uuid4 } from "uuid";
 
@@ -40,9 +40,9 @@ export default function Form({
   return (
     <section className="form-container">
       <form onSubmit={handleFormSubmit}>
-        <h2>Preencha os dados para criar o card:</h2>
+        <h2>Criar novo card:</h2>
 
-        <TextInput
+        <Input
           required={true}
           label="Nome"
           placeholder="Digite o seu nome"
@@ -50,7 +50,7 @@ export default function Form({
           onChange={(value) => setName(value)}
         />
 
-        <TextInput
+        <Input
           required={true}
           label="Cargo"
           placeholder="Digite o seu cargo"
@@ -58,7 +58,7 @@ export default function Form({
           onChange={(value) => setRole(value)}
         />
 
-        <TextInput
+        <Input
           label="Imagem"
           placeholder="Informe o endereço da imagem"
           iptValue={avatar}
@@ -81,9 +81,9 @@ export default function Form({
           onCreateNewTeam({ name: teamName, color: teamColor });
         }}
       >
-        <h2>Crie um novo time:</h2>
+        <h2>Criar um novo time:</h2>
 
-        <TextInput
+        <Input
           required
           label="Nome"
           placeholder="Digite o nome do time"
@@ -91,12 +91,13 @@ export default function Form({
           onChange={(value) => setTeamName(value)}
         />
 
-        <TextInput
+        <Input
           required
           label="Cor"
           placeholder="Digite a cor do time"
           iptValue={teamColor}
           onChange={(value) => setTeamColor(value)}
+          type="color"
         />
         <Button textContent="Criar Time">Criar Novo time</Button>
       </form>
